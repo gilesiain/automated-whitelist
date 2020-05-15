@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>auto whitelist</title>
+        <link rel="stylesheet" href="/projects/whitelist/whitelist.css">
+        <script src="/projects/whitelist/whitelist.js"></script>
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <!--#1 enter steam username-->
+        <div id="section-one">
+            <h1>ENTER STEAM USER NAME
+            </h1>
+            <p>The one you login with</p>
+            <input id="steam_name" type="text">
+            <button
+                onclick="document.getElementById('section-one').style.display='none';
+                document.getElementById('section-two').style.display='block';
+                send_it();">FIND</button>
+        </div>
+
+        <!--#2 verify your steam account-->
+        <div id="section-two" style="display:none;">
+            <h1>IS THIS YOU?</h1>
+            <p id="loading-profile" >Loading...</p>
+            <div id="section-two-div">
+                <img src="" id="avatar">
+                <h3 id="user_name"></h3>
+
+            </div>
+            <button onclick="hold_guid();
+                document.getElementById('section-two').style.display='none';
+                document.getElementById('section-three').style.display='block';">YES</button>
+            <button
+                onclick="location.reload();">NO</button>
+        </div>
+
+        <!--#3 awnser questions-->
+        <div id="section-three" style="display:none;">
+            <h1>QUESTIONNAIRE</h1>
+            <p>Answer correctly,
+                <br>within the time limit to become whitelisted</p>
+
+
+            <h3>CLICK ON BLUE</h3>
+            <button
+                onclick="document.getElementById('section-three').style.display='none';
+                document.getElementById('section-four').style.display='block';">RED</button>
+            <button
+                onclick="document.getElementById('section-three').style.display='none';
+                document.getElementById('section-four').style.display='block';">GREEN</button>
+            <button onclick="make_whitelisted();
+                document.getElementById('section-three').style.display='none';
+                document.getElementById('section-five').style.display='block';">BLUE</button>
+        </div>
+
+        <!--#4 wrong answer-->
+        <div id="section-four" style="display:none;">
+            <h1>Sorry you answered incorrectly, try again</h1>
+            <button onclick="location.reload();">Restart</button>
+        </div>
+
+        <!--#5 correct answer-->
+        <div id="section-five" style="display:none;">
+            <h1>Congratulations you have been whitelisted</h1>
+        </div>
+
+        <div class="view-text">
+            <p>view the whitelist .txt file</p>
+            <button
+                onclick="window.open('https://www.iaingiles.com/projects/whitelist/whitelist.txt');">view
+            </button>
+        </div>
+    </body>
+
+</html>
